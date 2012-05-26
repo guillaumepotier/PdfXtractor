@@ -5,6 +5,7 @@ php:
     - 5.4
 
 before_script:
-    - sudo chmod 777 bin/gs
+    - sudo mv bin/gs bin/.gs
+    - sudo mv bin/gs-904-linux_x86 bin/gs
 
 script: phpunit --coverage-text

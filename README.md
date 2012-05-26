@@ -4,6 +4,8 @@ PdfXtractor
 **PdfXtractor** is a PHP class that relies on GhostScript. This is a handy wrapper that
 allows PDF conversion to JPEG files.
 
+[![Build Status](https://secure.travis-ci.org/guillaumepotier/PdfXtractor.png)](http://travis-ci.org/guillaumepotier/PdfXtractor)
+
 Installation
 ------------
 
@@ -68,7 +70,15 @@ To run unit tests, just launch the following command:
 phpunit
 ```
 
+TODO
+----
+
+Need to better rationalize the GhostScript binary used in function of the user OS. Maybe
+integrate a shell script to build gs properly for the user os.
+
 License
 -------
 
-PdfXtractor is released under the MIT License for the PHP Wrapper. Unfortunately, GhostScript is under GPL license. Which makes this whole project under GPL license. See the bundled LICENSE file for more details.
+PdfXtractor is released under the MIT License for the PHP Wrapper. Unfortunately,
+GhostScript is under GPL license. Which makes this whole project under GPL license.
+See the bundled LICENSE file for more details.
