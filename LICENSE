@@ -1,0 +1,4 @@
+The PdfXtractor PHP code is under MIT license.
+
+Unfortunately, the GhostScript bin used to mainly convert the PDF to JPEG images is under
+GPL. Please see http://www.ghostscript.com/download/gsdnld.html for more information.
