@@ -45,7 +45,13 @@ require the provided autoloader:
 require_once 'src/autoload.php';
 ```
 
-You're done.
+Be sure to give permissions to the GhostScript binary you'll use:
+
+```
+chmod 777 bin/gs-905-osx
+```
+
+You're done!
 
 Usage
 -----
