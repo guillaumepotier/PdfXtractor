@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+    backupStaticAttributes="false"
+    colors="true"
+    convertErrorsToExceptions="true"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
+    processIsolation="false"
+    stopOnFailure="false"
+    syntaxCheck="false"
+    bootstrap="tests/bootstrap.php"
+    >
+    <php>
+        <server name="GS_BIN" value="gs-905-linux_x86" />
+    </php>
+    <testsuites>
+        <testsuite name="PdfXtractor Travis Test Suite">
+            <directory>./tests/</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist>
+            <directory>./src/PdfXtractor/</directory>
+        </whitelist>
+    </filter>
+</phpunit>

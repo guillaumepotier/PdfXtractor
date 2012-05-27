@@ -64,7 +64,15 @@ $pdfXtractor->extract();
 Unit Tests
 ----------
 
-To run unit tests, just launch the following command:
+To run unit tests, set your proper phpunit.xml file by doing:
+
+```
+cp phpunit.xml.dist phpunit.xml
+vi phpunit.xml
+```
+
+Set the `GS_BIN` you'll use in your environement. Save and launch then the following
+command:
 
 ```
 phpunit
@@ -74,7 +82,13 @@ TODO
 ----
 
 Need to better rationalize the GhostScript binary used in function of the user OS. Maybe
-integrate a shell script to build gs properly for the user os.
+integrate a shell script to build gs properly for the user os, because the 3 gs bin
+provided here are a little heavy (~100Mb) and still no better than a proper build.
+
+Credits
+-------
+
+Guillaume Potier. @guillaumepotier
 
 License
 -------

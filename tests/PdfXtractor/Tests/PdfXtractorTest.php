@@ -12,10 +12,20 @@ class PdfXtractorTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->pdfXtractor = new PdfXtractor();
+        $this->pdfXtractor = new PdfXtractor(isset($_SERVER['GS_BIN']) ? $_SERVER['GS_BIN'] : false);
         $this->input = __DIR__.'/../input';
         $this->output = __DIR__.'/../output';
         chmod($this->output, 0777);
+    }
+
+    public function testSetUp()
+    {
+        try {
+            $pdfXtractor = new PdfXtractor('wrong_bin');
+            $this->fail();
+        } catch (\Exception $e) {
+            $this->isTrue();
+        }
     }
 
     public function testLoad()
