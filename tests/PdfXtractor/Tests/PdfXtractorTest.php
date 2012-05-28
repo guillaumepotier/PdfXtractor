@@ -70,13 +70,14 @@ class PdfXtractorTest extends \PHPUnit_Framework_TestCase
         }
 
         $extract = $this->pdfXtractor->load($this->input.'/test1.pdf')->set($this->output, 'test1')->extract(true);
-        $this->assertEquals($extract, true);
+        $this->assertEquals(true, $extract);
 
         $extract = $this->pdfXtractor->extract();
-        $this->assertEquals(4, count($extract));
+        $this->assertEquals(true, $extract);
+        $this->assertEquals(4, count($this->pdfXtractor->getExtractMsg()));
 
-        $extract = $this->pdfXtractor->set($this->output, 'test');
-        $this->assertEquals(1, count($extract));
+        $extract = $this->pdfXtractor->set($this->output, 'test')->extract();
+        $this->assertEquals(true, $extract);
     }
 
     protected function tearDown()

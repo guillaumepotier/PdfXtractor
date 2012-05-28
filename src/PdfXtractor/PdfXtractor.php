@@ -11,6 +11,8 @@ class PdfXtractor implements PdfXtractorInterface
     private $outputDir = false;
     private $outputName = false;
 
+    private $extractMsg = null;
+
     public function __construct($gsBin = 'gs', $gsPath = false)
     {
         $this->gsBin = $gsBin;
@@ -63,8 +65,25 @@ class PdfXtractor implements PdfXtractorInterface
             $cmd .= " > /dev/null 2>/dev/null &";
         }
 
-        exec($this->gsPath.$cmd, $output);
+        return $this->gs($cmd, $async);
+    }
 
-        return false === $async ? array_slice($output, 3) : true;
+    private function gs($cmd, $async)
+    {
+        $lastLine = exec($this->gsPath.$cmd, $output);
+
+        if (true === $async) {
+            return true;
+        }
+
+        $this->extractMsg = array_slice($output, 3);
+        preg_match_all("/([0-9]+)/", $this->extractMsg[0], $matches);
+
+        return $lastLine == "Page ".$matches[0][1];
+    }
+
+    public function getExtractMsg()
+    {
+        return $this->extractMsg;
     }
 }
